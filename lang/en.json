@@ -1,0 +1,99 @@
+{
+  "INDINDOMINANT_PPIET": {
+    "Ability": {
+      "Mgt": { "long": "Might", "abbr": "mgt" },
+      "Dur": { "long": "Durability", "abbr": "dur" },
+      "Agi": { "long": "Agility", "abbr": "agi" },
+      "Int": { "long": "Intellect", "abbr": "int" },
+      "Pow": { "long": "Power", "abbr": "pow" },
+      "Xxx": { "long": "OMIT", "abbr": "xxx" }
+    },
+    "Cact":{
+      "Amod": { "long": "Attack Mod", "abbr": "amod" }
+     
+    },
+    "Cstat":{
+      "Dmod": { "long": "Damage Mod", "abbr": "dmod" },
+      "Cmod": { "long": "Control Mod", "abbr": "cmod" },
+      "Sta": { "long": "Stack Track A", "abbr": "sta" },
+      "Stb": { "long": "Stack Track B", "abbr": "stb" },
+      "Def": { "long": "Defense", "abbr": "def" },
+      "Dred": { "long": "Damage Red", "abbr": "dred" },
+      "Shld": { "long": "Shield Points", "abbr": "shld" },
+      "Mvt": { "long": "Movement", "abbr": "mvt" },
+      "Rng": { "long": "Range", "abbr": "rng" },
+      "Injl": { "long": "Injury Level", "abbr": "injl" }
+    },
+    "Dstat":{
+      "Def": { "long": "Defense", "abbr": "def" },
+      "Dred": { "long": "Damage Red", "abbr": "dred" },
+      "Shld": { "long": "Shield Points", "abbr": "shld" }
+    },
+    "Ustat":{
+      "Mvt": { "long": "Movement", "abbr": "mvt" },
+      "Rng": { "long": "Range", "abbr": "rng" },
+      "Injl": { "long": "Injury Level", "abbr": "injl" }
+    },
+    "Skill":{
+      "Acr": { "long": "Acrobatics", "abbr": "acr" },
+      "Cun": { "long": "Cunning", "abbr": "cun" },
+      "Fit": { "long": "Fitness", "abbr": "fit" },
+      "Inf": { "long": "Infusion", "abbr": "inf" },
+      "Pil": { "long": "Piloting", "abbr": "pow" },
+      "Sen": { "long": "Sense", "abbr": "sen" },
+      "Sne": { "long": "Sneak", "abbr": "sne" },
+      "Sur": { "long": "Survival", "abbr": "sur" },
+      "Bio": { "long": "Biology", "abbr": "bio" },
+      "Che": { "long": "Chemistry", "abbr": "che" },
+      "Ele": { "long": "Electronics", "abbr": "ele" },
+      "Eng": { "long": "Engineering", "abbr": "eng" },
+      "Med": { "long": "Medicine", "abbr": "med" },
+      "Phy": { "long": "Physics", "abbr": "phy" },
+      "Rec": { "long": "Recall", "abbr": "rec" },
+      "Civ": { "long": "Civics", "abbr": "civ" },
+      "Dec": { "long": "Deception", "abbr": "dec" },
+      "Ins": { "long": "Insight", "abbr": "ins" },
+      "Itd": { "long": "Intimidation", "abbr": "itd" },
+      "Per": { "long": "Persuasion", "abbr": "per" }
+    },
+    "Attributes": {
+      "Archtype": { "long": "Archetype", "abbr": "archtype" },
+      "Pset": { "long": "Powerset", "abbr": "pset" },
+      "Species": { "long": "Species", "abbr": "species" },
+      "Origin": { "long": "Origin", "abbr": "origin" },
+      "Calling": { "long": "Calling", "abbr": "calling" },
+      "Lifestyle": { "long": "Lifestyle", "abbr": "lifestyle" },
+      "Credits": { "long": "Credits", "abbr": "credits" }
+    },
+    
+    "SheetLabels": {
+      "Actor": "IndominantPiet Actor Sheet",
+      "Item": "IndominantPiet Item Sheet"
+    },
+    "Item": {
+      "Power": {
+        "PowerLVL": "Level {level} Power",
+        "AddLVL": "Add LVL {level}"
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Inherent Effects",
+      "Inactive": "Inactive Effects"
+    }
+  },
+
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC"
+    },
+    "Item": {
+      "item": "Item",
+      "feature": "Feature",
+      "power": "Power"
+    }
+  }
+}
