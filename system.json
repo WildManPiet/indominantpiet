@@ -27,8 +27,12 @@
     }
   ],
   "version": "2.0.2",
-  "esmodules": ["module/indominantpiet.mjs"],
-  "styles": ["css/indominantpiet.css"],
+  "esmodules": [
+    "module/indominantpiet.mjs"
+  ],
+  "styles": [
+    "css/indominantpiet.css"
+  ],
   "license": "LICENSE.txt",
   "readme": "README.md",
   "bugs": "gregpiet@gmail.com",
@@ -42,77 +46,129 @@
     {
       "type": "setup",
       "url": "systems/indominantpiet/assets/Indominant_Foundry_Image.png",
-      "thumbnail": "systems/indominantpiet/assets/Indominant_Foundry_Image.png"
+      "thumbnail": "systems/indominantpiet/assets/Indominant_Foundry_Image.png",
+      "loop": false,
+      "flags": {}
     }
   ],
   "languages": [
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "flags": {}
     }
   ],
   "packs": [
     {
       "name": "Powers",
       "label": "Powers",
-      "path": "./packs/powers.db",
-      "type": "Item"
+      "path": "packs/powers",
+      "type": "Item",
+      "system": "indominantpiet",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
       },
-      {
+      "flags": {}
+    },
+    {
       "name": "Consumables",
       "label": "Consumables",
-      "path": "./packs/consumables.db",
-      "type": "Item"
+      "path": "packs/consumables",
+      "type": "Item",
+      "system": "indominantpiet",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
       },
-      {
+      "flags": {}
+    },
+    {
       "name": "Species_Traits",
       "label": "Species Traits",
-      "path": "./packs/species_traits.db",
-      "type": "Item"
+      "path": "packs/species_traits",
+      "type": "Item",
+      "system": "indominantpiet",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
       },
-      {
+      "flags": {}
+    },
+    {
       "name": "Costume-Upgrades",
       "label": "Costume-Upgrades",
-      "path": "./packs/costume-upgrades.db",
-      "type": "Item"
+      "path": "packs/costume-upgrades",
+      "type": "Item",
+      "system": "indominantpiet",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
       },
-      {
-        "name": "Origins",
-        "label": "Origins",
-        "path": "./packs/origins.db",
-        "type": "Item"
-          },
-      {
-        "name": "Archetypes_Traits",
-          "label": "Archetypes and Traits",
-          "path": "./packs/dragintoanarchetypesandtraitsfolder.db",
-          "type": "Item"
-        },
-      {
-        "name": "OKG_Resources",
-        "label": "OKG Reference Resources",
-        "path": "./packs/okg-resources.db",
-         "type": "JournalEntry"
-          },
-          {
-            "name": "System_Actors",
-            "label": "System Actors",
-            "path": "./packs/system-actors.db",
-             "type": "Actor"
-              }   
-    ],
-  "packFolders": [
+      "flags": {}
+    },
     {
-      "name":"Indominant SRD content"
+      "name": "Origins",
+      "label": "Origins",
+      "path": "packs/origins",
+      "type": "Item",
+      "system": "indominantpiet",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "Archetypes_Traits",
+      "label": "Archetypes and Traits",
+      "path": "packs/dragintoanarchetypesandtraitsfolder",
+      "type": "Item",
+      "system": "indominantpiet",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "OKG_Resources",
+      "label": "OKG Reference Resources",
+      "path": "packs/okg-resources",
+      "type": "JournalEntry",
+      "system": "indominantpiet",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "System_Actors",
+      "label": "System Actors",
+      "path": "packs/system-actors",
+      "type": "Actor",
+      "system": "indominantpiet",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     }
   ],
-  "socket": false,
+  "packFolders": [
+    {
+      "name": "Indominant SRD content",
+      "color": null,
+      "packs": [],
+      "folders": []
+    }
+  ],
   "background": "systems/indominantpiet/assets/Indominant_Foundry_Image.png",
-    "grid":{
-      "distance":1,
-      "units":"Moo-mans"
-    },
+  "grid": {
+    "units": "Moo-mans"
+  },
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "drive"
 }

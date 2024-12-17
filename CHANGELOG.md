@@ -17,3 +17,8 @@
 
 -   Renamed Compendium of Archetypes for easier player use directly from Compendium sections.
 -   Changed Actor/Threat views to hover by owner for most. Fixed broken token link
+
+## 2.0.3
+
+-   Changed vision settings for all actors to better support limited lighting.
+-   Testing clickable attack and damage rolls with gloop threats
