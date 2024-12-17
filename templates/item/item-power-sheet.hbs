@@ -1,0 +1,125 @@
+<form class='{{cssClass}}' autocomplete='off'>
+  <header class='sheet-header'>
+    <img
+      class='profile-img'
+      src='{{item.img}}'
+      data-edit='img'
+      title='{{item.name}}'
+    />
+    <div class='header-fields'>
+      <h1 class='charname'><input
+          name='name'
+          type='text'
+          value='{{item.name}}'
+          placeholder='Name'
+        /></h1>
+    
+    <div class='grid grid-3col'>
+        <div class='grid-span-1'>
+          <label class='resource-label'>Power Level</label>
+          <span class='item-PowerLVL item-prop'>{{item.system.powerLevel}}</span>
+          </div>
+        <div class='grid-span-1'>
+          <label class='resource-label'>AP</label>
+          <span class='item-ap item-prop'>{{item.system.ap}}</span>
+        </div>
+        <div class='grid-span-1'>
+          <label class='resource-label'>Type</label>
+          <span class='item-type item-prop'>{{item.system.type}}</span>
+        </div>
+        <div class='grid-span-1'>
+          <label class='resource-label'>Check Type</label>
+          <span class='item-cktyp item-prop'>{{item.system.cktyp}}</span>
+        </div>
+        <div class='grid-span-1'>
+          <label class='resource-label'>Check Value</label>
+          <span class='item-ckval item-prop'>{{item.system.ckval}}</span>
+        </div>
+        <div class='grid-span-1'>
+          <label class='resource-label'>Damage Formula</label>
+          <span class='item-damformula item-prop'>{{item.system.damformula}}</span>
+        </div>
+      </div>
+  </header>
+
+  {{! Sheet Tab Navigation }}
+  <nav class='sheet-tabs tabs' data-group='primary'>
+    <a class='item' data-tab='description'>Description</a>
+    <a class='item' data-tab='attributes'>Attributes</a>
+  </nav>
+
+  {{! Sheet Body }}
+  <section class='sheet-body'>
+
+    {{! Description Tab }}
+    <div class='tab' data-group='primary' data-tab='description'>
+      {{! Editors must receive enriched text data from getData to properly handle rolls }}
+      {{editor
+        enrichedDescription
+        target='system.description'
+        engine='prosemirror'
+        button=true
+        editable=editable
+      }}
+    </div>
+
+    {{! Attributes Tab }}
+    <div class='tab attributes' data-group='primary' data-tab='attributes'>
+      {{! As you add new fields, add them in here! }}
+      <div class='resource'>
+        <label class='resource-label'>Power Level</label>
+        <input
+          type='text'
+          name='system.powerLevel'
+          value='{{system.powerLevel}}'
+          data-dtype='Number'
+        />
+      </div>
+      <div class='resource'>
+        <label class='resource-label'>AP</label>
+        <input
+          type='text'
+          name='system.ap'
+          value='{{system.ap}}'
+          data-dtype='Number'
+        />
+      </div>
+      <div class='resource'>
+        <label class='resource-label'>Type</label>
+        <input
+          type='text'
+          name='system.type'
+          value='{{system.type}}'
+          data-dtype='String'
+        />
+      </div>
+      <div class='resource'>
+            <label class='resource-label'>Check Type</label>
+            <input
+              type='text'
+              name='system.cktyp'
+              value='{{system.cktyp}}'
+              data-dtype='String'
+            />
+          </div>
+      <div class='resource'>
+        <label class='resource-label'>Check Value</label>
+        <input
+          type='text'
+          name='system.ckval'
+          value='{{system.ckval}}'
+          data-dtype='String'
+        />
+      </div>
+      <div class='resource'>
+            <label class='resource-label'>Damage Dice</label>
+            <input
+              type='text'
+              name='system.damformula'
+              value='{{system.damformula}}'
+              data-dtype='String'
+            />
+          </div>
+    </div>
+  </section>
+</form>

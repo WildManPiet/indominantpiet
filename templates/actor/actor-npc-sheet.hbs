@@ -1,0 +1,254 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+      {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+      use both the "grid" and "grid-Ncol" class where "N" can be any number
+      from 1 to 12 and will create that number of columns.  --}}
+      <div class="resources grid grid-5col">
+
+        {{!-- "flex-group-center" is also defined in the _grid.scss file
+        and it will add a small amount of padding, a border, and will
+        center all of its child elements content and text. --}}
+        <div class="resource flex-group-center">
+          <label for="system.health.value" class="resource-label">Health</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number"/>
+            <span> / </span>
+            <input type="text" name="system.health.trig" value="{{system.health.trig}}" data-dtype="Number"/>
+            <span> / </span>
+            <input type="text" name="system.health.max" value="{{system.health.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+       <div class="resource flex-group-center">
+          <label for="system.drive.value" class="resource-label">Mob Size</label> 
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.drive.value" value="{{system.drive.value}}" data-dtype="Number"/>
+          <span> / </span>
+          <input type="text" name="system.drive.max" value="{{system.drive.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+        
+        {{#each system.dstat as |dstat key|}}
+            <div class="dstat flex-group-center">
+              <label for="system.dstat.{{key}}.value" class="resource-label" data-label="{{localize (lookup @root.config.dstat key)}}">{{localize (lookup @root.config.dstat key)}}</label>
+              <input type="text" name="system.dstat.{{key}}.value" value="{{dstat.value}}" data-dtype="Number"/>
+            </div>
+            {{/each}} 
+                        
+        <div class='grid-span-1'>
+        <div class="resource flex-group-center">
+          <label for="system.attributes.ap.value" class="resource-label">AP</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.ap.value" value="{{system.attributes.ap.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+        </div>
+
+        <div class='grid-span-2'>
+        <label> <b><center>Resistances</center></b></label>
+          {{!-- <div class="cact flexcol"> --}}
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.resis.value" value="{{system.resis.value}}" data-dtype="text"/>
+          </div>
+            {{!-- </div> --}}
+            </div>
+        <div class='grid-span-2'>
+        <label> <b><center>Immunities</center></b></label>
+          {{!-- <div class="cact flexcol"> --}}
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.immune.value" value="{{system.immune.value}}" data-dtype="text"/>
+          </div>
+            {{!-- </div> --}}
+            </div>  
+        <div class='grid-span-1'>
+        <div class="resource flex-group-center">
+          <label for="system.attributes.counter.value" class="resource-label">Counter</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.counter.value" value="{{system.attributes.counter.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+        </div>
+
+        <div class='grid-span-3'>
+        <label> <b><center>Normal Roll <-<---Combat Attack--->-> Dominance Roll</center></b></label>
+          {{!-- <div class="cact flexcol"> --}}
+            {{#each system.cact as |cact key|}}
+            <div class="cact flexrow flex-group-center">
+              <label for="system.cact.{{key}}.value" class="resource-label rollable flex align-left" data-roll="d20+@cact.{{key}}.mod" data-label="{{localize (lookup @root.config.cact key)}}">{{localize (lookup @root.config.cact key)}}</label>
+              <input type="text" name="system.cact.{{key}}.value" value="{{cact.value}}" data-dtype="Number"/>
+              <span class="cact-mod rollable" data-roll="d20+@cact.{{key}}.mod + d4" data-label="{{localize (lookup @root.config.cact key)}}">{{numberFormat cact.mod decimals=0 sign=true}}</span>
+            </div>
+            {{/each}}
+        
+            </div>
+            {{!--
+            <label> <br/><center><b>Combat Modifier</b></center> </label><div class="cstat flexcol"> --}}
+            <div class='grid-span-1'>
+            {{#each system.cstat as |cstat key|}}
+            <div class="cstat flex-group-center">
+              <label for="system.cstat.{{key}}.value" class="resource-label" data-label="{{localize (lookup @root.config.cstat key)}}">{{localize (lookup @root.config.cstat key)}}</label>
+              <input type="text" name="system.cstat.{{key}}.value" value="{{cstat.value}}" data-dtype="Number"/>
+            </div>
+            {{/each}}
+          </div>
+
+        
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="features">Statistics</a>
+    <a class="item" data-tab="powers">Powers</a>
+    {{!-- <a class="item" data-tab="effects">Effects</a> --}}
+    <a class="item" data-tab="description">Motivations</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    <div class="tab features" data-group="primary" data-tab="features">
+      <section class="grid grid-2col">
+        <aside class="sidebar">
+          
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns.  --}}
+          <label> <center><b>Normal Roll  <-<-- Main Stats -->-> Dominance Roll</b></center> </label>
+          <div class="abilities flexcol">
+            {{#each system.abilities as |ability key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flex align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{localize (lookup @root.config.abilities key)}}">{{localize (lookup @root.config.abilities key)}}</label>
+              <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+              <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod + d4" data-label="{{localize (lookup @root.config.abilities key)}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+            </div>
+            {{/each}}
+          </div>
+          <label> <br/><center><b>Triggers</b></center> </label>
+          <div class="resource flexrow flex-group-center">
+          <label for="system.mchg.value" class="resource-label flex align-left">Mob Changes</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.mchg.value" value="{{system.mchg.value}}" data-dtype="text"/>
+          </div>
+          </div> 
+          <div class="resource flexrow flex-group-center">
+          <label for="system.htrg.value" class="resource-label flex align-left">Health Triggers</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.htrg.value" value="{{system.htrg.value}}" data-dtype="text"/>
+          </div>
+          </div>
+          
+
+            {{!-- </div> --}}
+          {{!--
+          <label> <br/><center><b>Combat Actions</b></center> </label>
+          <div class="cact flexcol">
+            {{#each system.cact as |cact key|}}
+            <div class="cact flexrow flex-group-center">
+              <label for="system.cact.{{key}}.value" class="resource-label rollable flex align-left" data-roll="d20+@cact.{{key}}.mod" data-label="{{localize (lookup @root.config.cact key)}}">{{localize (lookup @root.config.cact key)}}</label>
+              <input type="text" name="system.cact.{{key}}.value" value="{{cact.value}}" data-dtype="Number"/>
+              <span class="cact-mod rollable" data-roll="d20+@cact.{{key}}.mod + d4" data-label="{{localize (lookup @root.config.cact key)}}">{{numberFormat cact.mod decimals=0 sign=true}}</span>
+            </div>
+            {{/each}}
+            <label> <center><b> </b></center> </label>
+            <label> <br/><center><b>Combat Modifier</b></center> </label><div class="cstat flexcol">
+            {{#each system.cstat as |cstat key|}}
+            <div class="cstat flexrow flex-group-center">
+              <label for="system.cstat.{{key}}.value" class="resource-label flexlarge align-left" data-label="{{localize (lookup @root.config.cstat key)}}">{{localize (lookup @root.config.cstat key)}}</label>
+              <input type="text" name="system.cstat.{{key}}.value" value="{{cstat.value}}" data-dtype="Number"/>
+              
+            </div>
+            {{/each}}
+          
+          --}}
+          
+        </aside>
+
+        {{!-- For the main features list, span the right two columns --}}
+        <section class="main grid-span-1">
+          
+           
+            <label> <center><b>Utility Stats</b></center> </label>
+            <div class="ustat flexcol">
+            {{#each system.ustat as |ustat key|}}
+            <div class="ustat flexrow flex-group-center">
+              <label for="system.ustat.{{key}}.value" class="resource-label flex align-left" data-label="{{localize (lookup @root.config.ustat key)}}">{{localize (lookup @root.config.ustat key)}}</label>
+              <input type="text" name="system.ustat.{{key}}.value" value="{{ustat.value}}" data-dtype="Number"/> 
+            </div>
+            {{/each}}
+            <label> <br/><center><b>Threat Ratings</b></center> </label><div class="ustat flexcol"></div>
+            <div class="resource flexrow flex-group-center">
+          <label for="system.attributes.classletter.value" class="resource-label flex align-left">Class</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.classletter.value" value="{{system.attributes.classletter.value}}" data-dtype="text"/>
+            {{!-- <span> / </span>
+            <input type="text" disabled="true" name="system.xp" value="{{system.xp}}" data-dtype="Number"/>--}}
+          </div>
+          </div>
+
+          <div class="resource flexrow flex-group-center">
+          <label for="system.attributes.cr.value" class="resource-label flex align-left">Level</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.cr.value" value="{{system.attributes.cr.value}}" data-dtype="Number"/>
+            {{!-- <span> / </span>
+            <input type="text" disabled="true" name="system.xp" value="{{system.xp}}" data-dtype="Number"/>--}}
+          </div>
+          </div>
+          <div class="resource flexrow flex-group-center">
+          <label for="system.attributes.xxp.value" class="resource-label flex align-left">Extra EP</label>
+            <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.xxp.value" value="{{system.attributes.xxp.value}}" data-dtype="Number"/>
+            </div>
+          </div>
+          </div>
+          <div class="resource flexrow flex-group-center">
+          <label for="system.attributes.role.value" class="resource-label flex align-left">Role</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.role.value" value="{{system.attributes.role.value}}" data-dtype="text"/>
+          </div>
+          </div>
+          <div class="resource flexrow flex-group-center">
+          <label for="system.attributes.size.value" class="resource-label flex align-left">Size</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.size.value" value="{{system.attributes.size.value}}" data-dtype="text"/>
+          </div>
+          </div>
+          
+          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+         {{!-- {{> "systems/indominantpiet/templates/actor/parts/actor-features.hbs"}}--}}
+        </section>
+        
+      </section>
+      
+      
+    </div>
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      {{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
+      {{editor enrichedBiography target="system.biography" engine="prosemirror" button=true editable=editable}}
+    </div>
+    
+    {{!-- Owned Powers Tab --}}
+    <div class="tab powers" data-group="primary" data-tab="powers">
+      {{> "systems/indominantpiet/templates/actor/parts/actor-powers.hbs"}}
+    </div>
+    
+    {{!-- Owned Items Tab --}}
+    <div class="tab items" data-group="primary" data-tab="items">
+       {{> "systems/indominantpiet/templates/actor/parts/actor-items.hbs"}}
+    </div>
+
+    {{!-- Active Effects Tab --}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+      {{> "systems/indominantpiet/templates/actor/parts/actor-effects.hbs"}}
+    </div>
+
+  </section>
+</form>
+

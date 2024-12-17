@@ -1,0 +1,296 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+      {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+      use both the "grid" and "grid-Ncol" class where "N" can be any number
+      from 1 to 12 and will create that number of columns.  --}}
+      <div class="resources grid grid-6col">
+
+        {{!-- "flex-group-center" is also defined in the _grid.scss file
+        and it will add a small amount of padding, a border, and will
+        center all of its child elements content and text. --}}
+        <div class="resource flex-group-center">
+          <label for="system.health.value" class="resource-label">Health</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number"/>
+          <span> / </span>
+          <input type="text" name="system.health.max" value="{{system.health.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.drive.value" class="resource-label">Drive</label> 
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.drive.value" value="{{system.drive.value}}" data-dtype="Number"/>
+          <span> / </span>
+          <input type="text" name="system.drive.max" value="{{system.drive.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.drive.recovery" class="resource-label">Recovery</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.drive.recovery" value="{{system.drive.recovery}}" data-dtype="Number"/>
+          </div>
+        </div>
+        {{#each system.ustat as |ustat key|}}
+            <div class="ustat flex-group-center">
+              <label for="system.ustat.{{key}}.value" class="resource-label" data-label="{{localize (lookup @root.config.ustat key)}}">{{localize (lookup @root.config.ustat key)}}</label>
+              <input type="text" name="system.ustat.{{key}}.value" value="{{ustat.value}}" data-dtype="Number"/>
+              
+            </div>
+            {{/each}}
+        <div class="resource flex-group-center">
+          <label for="system.level.value" class="resource-label">Level/XP</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.level.value" value="{{system.level.value}}" data-dtype="Number"/>
+          <span> / </span>
+          <input type="text" name="system.xp.value" value="{{system.xp.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+                   
+          {{#each system.dstat as |dstat key|}}
+            <div class="dstat flex-group-center">
+              <label for="system.dstat.{{key}}.value" class="resource-label" data-label="{{localize (lookup @root.config.dstat key)}}">{{localize (lookup @root.config.dstat key)}}</label>
+              <input type="text" name="system.dstat.{{key}}.value" value="{{dstat.value}}" data-dtype="Number"/>
+              
+            </div>
+            {{/each}}
+          {{#each system.cstat as |cstat key|}}
+            <div class="cstat flex-group-center">
+              <label for="system.cstat.{{key}}.value" class="resource-label" data-label="{{localize (lookup @root.config.cstat key)}}">{{localize (lookup @root.config.cstat key)}}</label>
+              <input type="text" name="system.cstat.{{key}}.value" value="{{cstat.value}}" data-dtype="Number"/>
+              
+            </div>
+            {{/each}}
+
+
+            {{#each system.cact as |cact key|}}
+            <div class='grid-span-4'>
+   {{!Combat Action}}<label> <b><center>Normal Roll <--Combat Attack--> Dominance 1 / Dominance 2</center></b></label>    
+            <div class="cact flexrow flex-group-center">
+              <label for="system.cact.{{key}}.value" class="resource-label rollable flex align-left" data-roll="d20+@cact.{{key}}.mod" data-label="{{localize (lookup @root.config.cact key)}}">{{localize (lookup @root.config.cact key)}}</label>
+              <input type="text" name="system.cact.{{key}}.value" value="{{cact.value}}" data-dtype="Number"/>
+              <span class="cact-mod rollable" data-roll="d20+@cact.{{key}}.mod + d4" data-label="{{localize (lookup @root.config.cact key)}}">{{numberFormat cact.mod decimals=0 sign=true}}</span>
+              <span class="cact-mod rollable" data-roll="d20+@cact.{{key}}.mod + d6" data-label="{{localize (lookup @root.config.cact key)}}">{{numberFormat cact.mod decimals=0 sign=true}}</span>
+            </div></div>
+            {{/each}}
+
+            {{!--
+        <div class="resource flex-group-center">
+          <label for="system.attributes.archtype.value" class="resource-label">Archetype</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.attributes.archtype.value" value="{{system.attributes.archtype.value}}" data-dtype="text"/>
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.attributes.pset.value" class="resource-label">Powerset</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.attributes.pset.value" value="{{system.attributes.pset.value}}" data-dtype="text"/>
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.attributes.calling.value" class="resource-label">Calling</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.attributes.calling.value" value="{{system.attributes.calling.value}}" data-dtype="text"/>
+          </div>
+        </div>
+       
+         <div class="resource flex-group-center">
+          <label for="system.attributes.level.value" class="resource-label">Level</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.attributes.level.value" value="{{system.attributes.level.value}}" data-dtype="Number"/>
+         </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.attributes.level.value" class="resource-label">XP</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.attributes.xp.value" value="{{system.attributes.xp.value}}" data-dtype="Number"/>
+         
+          </div>
+        </div>
+        
+       
+        <div class="resource flex-group-center">
+          <label for="system.attributes.species.value" class="resource-label">Species</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.attributes.species.value" value="{{system.attributes.species.value}}" data-dtype="text"/>
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.attributes.origin.value" class="resource-label">Origin</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.attributes.origin.value" value="{{system.attributes.origin.value}}" data-dtype="text"/>
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+                  <label for="system.attributes.lifestyle.value" class="resource-label">Lifestyle</label>
+                  <div class="resource-content flexrow flex-center flex-between">
+                  <input type="text" name="system.attributes.lifestyle.value" value="{{system.attributes.lifestyle.value}}" data-dtype="text"/>
+                  </div>
+          </div>--}}
+      </div> 
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="features">Statistics</a>
+    <a class="item" data-tab="powers">Powers</a>
+     <a class="item" data-tab="inherent">Abilities/Talents/Upgrades</a>
+     <a class="item" data-tab="items">Items</a>
+    
+     {{!-- <a class="item" data-tab="effects">Status Effects</a> --}}
+    <a class="item" data-tab="description">Description</a>
+    
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Owned Features Tab --}}
+    <div class="tab features" data-group="primary" data-tab="features">
+      <section class="grid grid-2col">
+        <aside class="sidebar">
+          
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns.  --}}
+          <label> <b><center>Normal Roll <-<--------------->-> Dominance Roll</center></b></label>
+          <label> <center><b>Main Stats / Check Bonus / Dominant</b></center> </label>
+          <div class="abilities flexcol">
+
+
+
+            {{#each system.abilities as |ability key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flex align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{localize (lookup @root.config.abilities key)}}">{{localize (lookup @root.config.abilities key)}}</label>
+              <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+              <input type="text" name="system.abilities.{{key}}.bonus" value="{{ability.bonus}}" data-dtype="Number"/>
+              <input type="checkbox" name="system.abilities.{{key}}.Dcheckbox" {{checked Dcheckbox}}>
+              <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod+d4" data-label="{{localize (lookup @root.config.abilities key)}}">{{numberFormat ability.mod decimals=0 sign=true}}</span> 
+            </div>
+            {{/each}}
+          </div>
+          <label> <center><b> </b></center> </label>
+          
+            {{!--
+            <label> <br/><center><b>Combat Modifiers</b></center> </label>
+            {{#each system.cstat as |cstat key|}}
+            <div class="cstat flexrow flex-group-center">
+              <label for="system.cstat.{{key}}.value" class="resource-label flex align-left" data-label="{{localize (lookup @root.config.cstat key)}}">{{localize (lookup @root.config.cstat key)}}</label>
+              <input type="text" name="system.cstat.{{key}}.value" value="{{cstat.value}}" data-dtype="Number"/>
+              
+            </div>  
+            {{/each}} --}}
+            
+            {{!--
+            <label> <br/><center><b>Defensive Stats</b></center> </label>
+            <div class="dstat flexcol">
+            {{#each system.dstat as |dstat key|}}
+            <div class="dstat flexrow flex-group-center">
+              <label for="system.dstat.{{key}}.value" class="resource-label flex align-left" data-label="{{localize (lookup @root.config.dstat key)}}">{{localize (lookup @root.config.dstat key)}}</label>
+              <input type="text" name="system.dstat.{{key}}.value" value="{{dstat.value}}" data-dtype="Number"/>
+              
+            </div>
+            {{/each}}
+            <label> <br/><center><b>Utility Stats</b></center> </label><div class="ustat flexcol">
+            {{#each system.ustat as |ustat key|}}
+            <div class="ustat flexrow flex-group-center">
+              <label for="system.ustat.{{key}}.value" class="resource-label flex align-left" data-label="{{localize (lookup @root.config.ustat key)}}">{{localize (lookup @root.config.ustat key)}}</label>
+              <input type="text" name="system.ustat.{{key}}.value" value="{{ustat.value}}" data-dtype="Number"/>
+              
+            </div>
+            {{/each}}
+
+            --}}
+
+            <label> <br/><center><b>Life Choices</b</center> </label>
+            {{#each system.attributes as |attributes key|}}
+            <div class="cstat flexrow flex-group-center">
+              <label for="system.attributes.{{key}}.value" class="resource-label flex align-left" data-label="{{localize (lookup @root.config.attributes key)}}">{{localize (lookup @root.config.attributes key)}}</label>
+              <input type="text" name="system.attributes.{{key}}.value" value="{{attributes.value}}" data-dtype="text"/>
+              
+            </div>  
+            {{/each}}
+          
+        </aside>
+
+        {{!-- For the main features list, span the right two columns --}}
+        <section class="main grid-span-1">
+          <section class="grid grid-4col">
+          <label><b>Normal Roll</b></label>
+          <label><b>   Expertise/XP/Dominant</b></label>
+          <div class='grid-span-2'>
+          <label> <b><center>1-Dominance-2 </center></b></label>
+          </div>
+          </section>
+          
+          <div class="skill flexcol">
+            {{#each system.skill as |skill key|}}
+            <div class="skill flexrow flex-group-center">
+             
+                
+              
+              <label for="system.skill.{{key}}.value" class="resource-label rollable flex align-left" data-roll="d20+@skill.{{key}}.mod" data-label="{{localize (lookup @root.config.skill key)}}">{{localize (lookup @root.config.skill key)}}</label>
+              {{!-- I want to put a Dominaince and EXPERTISE BUTTON HERE --}}
+              {{!--<input type="text" name="system.skille.{{key}}.value" value="{{skille.value}}" data-dtype="text"/>--}}
+              
+              <input type="checkbox" name="system.skill.{{key}}.Echeckbox" {{checked Echeckbox}}>
+              <input type="text" name="system.skill.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/>
+              <input type="checkbox" name="system.skill.{{key}}.Dcheckbox" {{checked Dcheckbox}}>
+              <span class="skill-mod rollable" data-roll="d20+@skill.{{key}}.mod + d4" data-label="{{localize (lookup @root.config.skill key)}}">{{numberFormat skill.mod decimals=0 sign=true}}</span>
+              <span class="skill-mod rollable" data-roll="d20+@skill.{{key}}.mod + d6" data-label="{{localize (lookup @root.config.skill key)}}">{{numberFormat skill.mod decimals=0 sign=true}}</span>
+            
+            
+            </div>
+            {{/each}}
+            
+            {{!--<label> <b><center>Add 30 XP for Expertise(for now)</center></b></label>
+            <label> <b><center>If you reach Level 10 put your XP @ 120</center></b></label>
+            <label> <b><center>or 150 if you have Expertise(for now)</center></b></label> --}}
+          </div>
+          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+        {{!--{{> "systems/indominantpiet/templates/actor/parts/actor-features.hbs"}}--}}
+        </section>
+    
+      </section>
+      
+    </div>
+    {{!-- Features  Tab --}}
+    <div class="tab inherent" data-group="primary" data-tab="inherent">
+      {{> "systems/indominantpiet/templates/actor/parts/actor-features.hbs"}}
+    </div>    
+
+
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      {{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
+      {{editor enrichedBiography target="system.biography" engine="prosemirror" button=true editable=editable}}
+    </div>
+
+    {{!-- Owned Items Tab --}}
+    <div class="tab items" data-group="primary" data-tab="items">
+       {{> "systems/indominantpiet/templates/actor/parts/actor-items.hbs"}}
+    </div>
+
+    {{!-- Owned Powers Tab --}}
+    <div class="tab powers" data-group="primary" data-tab="powers">
+      {{> "systems/indominantpiet/templates/actor/parts/actor-powers.hbs"}}
+    </div>
+
+    {{!-- Active Effects Tab --}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+      {{> "systems/indominantpiet/templates/actor/parts/actor-effects.hbs"}}
+    </div>
+{{!-- Owned Spells Tab 
+    <div class="tab spells" data-group="primary" data-tab="spells">
+      {{> "systems/boilerplate/templates/actor/parts/actor-spells.hbs"}}
+    </div> --}}
+  </section>
+</form>

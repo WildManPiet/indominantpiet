@@ -1,0 +1,77 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+      <div class='grid grid-7col'>
+        <div class='grid-span-1'>
+          <label class='resource-label'>AP</label>
+          <span class='item-ap item-prop'>{{item.system.ap}}</span>
+          </div>
+        <div class='grid-span-1'>
+          <label class='resource-label'>Uses</label>
+          <span class='item-uses item-prop'>{{item.system.uses}}</span>
+        </div>
+        <div class='grid-span-5'>
+          <label class='resource-label'>Summary</label>
+          <span class='item-summ item-prop'>{{item.system.summ}}</span>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="effects">Effects</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{!-- Editors must receive enriched text data from getData to properly handle rolls --}}
+      {{editor enrichedDescription target="system.description" engine="prosemirror" button=true editable=editable}}
+    </div>
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      {{!-- As you add new fields, add them in here! --}}
+      <div class='resource'>
+        <label class='resource-label'>AP</label>
+        <input
+          type='text'
+          name='system.ap'
+          value='{{system.ap}}'
+          data-dtype='Number'
+        />
+      </div>
+      <div class='resource'>
+        <label class='resource-label'>Uses</label>
+        <input
+          type='text'
+          name='system.uses'
+          value='{{system.uses}}'
+          data-dtype='String'
+        />
+      </div>
+      <div class='resource'>
+        <label class='resource-label'>Summary</label>
+        <input
+          type='text'
+          name='system.summ'
+          value='{{system.summ}}'
+          data-dtype='String'
+        />
+      </div>
+    </div>
+
+    {{!-- Effects Tab --}}
+    <div class="tab effects" data-group="primary" data-tab="effects">
+      {{> "systems/indominantpiet/templates/item/parts/item-effects.hbs"}}
+    </div>
+  </section>
+
+</form>
