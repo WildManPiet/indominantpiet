@@ -1,0 +1,118 @@
+{
+  "id": "indominantpiet",
+  "title": "Indominant Piet Primer 2.0",
+  "description": "The Indominant Piet system for FoundryVTT!",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12.331"
+  },
+  "url": "https://github.com/WildManPiet/indominantpiet/tree/indominantpiet/",
+  "manifest": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/indominantpiet/system.json",
+  "download": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/indominantpiet/indominantpiet_v2_0_2.zip",
+  "authors": [
+    {
+      "name": "Greg Piet",
+      "discord": "WildManPiet",
+      "flags": {}
+    },
+    {
+      "name": "Asacolips (Boilerplate)",
+      "discord": "asacolips(Boilerplate)",
+      "flags": {}
+    },
+    {
+      "name": "Lee Talman(Boilerplate)",
+      "discord": ".pizzaWizard(Boilerplate)",
+      "flags": {}
+    }
+  ],
+  "version": "2.0.2",
+  "esmodules": ["module/indominantpiet.mjs"],
+  "styles": ["css/indominantpiet.css"],
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "bugs": "gregpiet@gmail.com",
+  "changelog": "CHANGELOG.md",
+  "media": [
+    {
+      "type": "cover",
+      "loop": false,
+      "flags": {}
+    },
+    {
+      "type": "setup",
+      "url": "systems/indominantpiet/assets/Indominant_Foundry_Image.png",
+      "thumbnail": "systems/indominantpiet/assets/Indominant_Foundry_Image.png"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [
+    {
+      "name": "Powers",
+      "label": "Powers",
+      "path": "./packs/powers.db",
+      "type": "Item"
+      },
+      {
+      "name": "Consumables",
+      "label": "Consumables",
+      "path": "./packs/consumables.db",
+      "type": "Item"
+      },
+      {
+      "name": "Species_Traits",
+      "label": "Species Traits",
+      "path": "./packs/species_traits.db",
+      "type": "Item"
+      },
+      {
+      "name": "Costume-Upgrades",
+      "label": "Costume-Upgrades",
+      "path": "./packs/costume-upgrades.db",
+      "type": "Item"
+      },
+      {
+        "name": "Origins",
+        "label": "Origins",
+        "path": "./packs/origins.db",
+        "type": "Item"
+          },
+      {
+        "name": "Archetypes_Traits",
+          "label": "Archetypes and Traits",
+          "path": "./packs/dragintoanarchetypesandtraitsfolder.db",
+          "type": "Item"
+        },
+      {
+        "name": "OKG_Resources",
+        "label": "OKG Reference Resources",
+        "path": "./packs/okg-resources.db",
+         "type": "JournalEntry"
+          },
+          {
+            "name": "System_Actors",
+            "label": "System Actors",
+            "path": "./packs/system-actors.db",
+             "type": "Actor"
+              }   
+    ],
+  "packFolders": [
+    {
+      "name":"Indominant SRD content"
+    }
+  ],
+  "socket": false,
+  "background": "systems/indominantpiet/assets/Indominant_Foundry_Image.png",
+    "grid":{
+      "distance":1,
+      "units":"Moo-mans"
+    },
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "drive"
+}

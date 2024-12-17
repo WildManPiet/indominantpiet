@@ -1,0 +1,297 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 35,
+          "min": 0,
+          "trig": 0,
+          "max": 35
+        },
+        "drive": {
+          "value": 2,
+          "min": 0,
+          "max": 2,
+          "recovery":1
+        },
+        "resis":{
+          "value":"None"
+        },
+        "mchg":{
+          "value":"None"
+        },
+        "htrg":{
+          "value":"X/X"
+        },
+        "immune":{
+          "value":"Nope"
+        },
+        "level": {
+          "value": 1
+        },
+        "xp": {
+          "value": 0
+        },
+        "biography": ""
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "attributes": {
+        
+        "archtype": {
+          "value": "Bruiser"
+        },
+        "pset": {
+          "value": "Weaponry"
+        },
+        "species": {
+          "value": "Energoid"
+        },
+        "origin": {
+          "value": "Natural"
+        },
+        "calling": {
+          "value": "Drifter"
+        },
+        "lifestyle": {
+          "value": "Poor"
+        },
+        "credits": {
+          "value": 400
+        }
+       
+      },
+      "abilities": {
+        "agi": {
+          "value": 0,
+          "bonus": 0
+        },
+        "dur": {
+          "value": 0,
+          "bonus":0
+        },
+        "int": {
+          "value": 0,
+          "bonus":0
+        },
+        "mgt": {
+          "value": 0,
+          "bonus":0
+        },
+        "pow": {
+          "value": 0,
+          "bonus":0
+        }
+      },
+      "cact": {
+        "amod": {
+          "value": 0
+        }
+        
+      },
+      "cstat": { 
+        "dmod": {
+          "value": 0
+        },
+        "cmod": {
+          "value": 0
+        },
+        "sta": {
+          "value": 0
+        },
+        "stb": {
+          "value": 0
+        }
+      },
+      "dstat":{
+        "def": {
+          "value": 0
+        },
+        "dred": {
+          "value": 0
+        },
+        "shld": {
+          "value": 0
+        }
+      },
+      "ustat":{
+        "mvt": {
+          "value": 6
+        },
+        "rng": {
+          "value": 4
+        },
+        "injl": {
+          "value": 0
+        }
+      },
+      "skill": {
+        "acr": {
+          "value": 0
+        },
+        "cun": {
+          "value": 0
+        },
+        "fit": {
+          "value": 0
+        },
+        "inf": {
+          "value": 0
+        },
+        "pil": {
+          "value": 0
+        },
+        "sen": {
+          "value": 0
+        },
+        "sne": {
+          "value": 0
+        },
+        "sur": {
+          "value": 0
+        },
+        "bio": {
+          "value": 0
+        },
+        "che": {
+          "value": 0
+        },
+        "ele": {
+          "value": 0
+        },
+        "eng": {
+          "value": 0
+        },
+        "med": {
+          "value": 0
+        },
+        "phy": {
+          "value": 0
+        },
+        "rec": {
+          "value": 0
+        },
+        "civ": {
+          "value": 0
+        },
+        "dec": {
+          "value": 0
+        },
+        "ins": {
+          "value": 0
+        },
+        "itd": {
+          "value": 0
+        },
+        "per": {
+          "value": 0
+        }
+      }
+    },
+    "npc": {
+      "templates": ["base"],
+      "attributes": {
+         "def": {
+            "value": 10},
+          "ap": {
+            "value": 4},
+          "counter":{
+              "value": 0
+          },
+        "classletter": {
+          "value": "F"}, 
+        "cr": {
+            "value": 1},
+        "xxp":{
+            "value": 0
+            },
+        "role":{
+            "value": "Grunt"
+            },
+        "size":{
+            "value": "Medium"
+            }
+       
+      },
+      "abilities": {
+        "agi": {
+          "value": 2
+        },
+        "dur": {
+          "value": 2
+        },
+        "int": {
+          "value": 0
+        },
+        "mgt": {
+          "value": 2
+        },
+        "pow": {
+          "value": 2
+        }
+      },
+      "cact": {
+        "amod": {
+          "value": 3
+        }
+        
+      },
+      "cstat": { 
+        "dmod": {
+          "value": 3
+        }
+      },
+      "dstat":{
+        "def": {
+          "value": 9
+        },
+        "dred": {
+          "value": 0
+        },
+        "shld": {
+          "value": 0
+        }
+      },
+      "ustat":{
+        "mvt": {
+          "value": 6
+        },
+        "rng": {
+          "value": 4
+        }
+      }
+    }
+    },
+  "Item": {
+    "types": ["item", "feature", "power"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "uses": 1,
+      "usesleft":1,
+      "slots": 1,
+      "ap": 1
+    },
+    "feature": {
+      "templates": ["base"]
+    },
+    "power": {
+      "templates": ["base"],
+      "powerLevel": 1,
+      "ap":2,
+      "type":"Ranged",
+      "cktyp":"DUR",
+      "ckval": "9 + Control",
+      "damformula":"1d6 + DamMod"
+    }
+    
+  }
+}
+
+

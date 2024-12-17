@@ -1,0 +1,6 @@
+//  {
+    //  "name": "Archetypes",
+    //  "label": "Archetypes",
+    //  "path": "./packs/archetypes.db",
+    //  "type": "Item"
+    //  },
