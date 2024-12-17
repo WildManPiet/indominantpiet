@@ -7,8 +7,8 @@
     "verified": "12.331"
   },
   "url": "https://github.com/WildManPiet/indominantpiet/tree/indominantpiet/",
-  "manifest": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/indominantpiet/system.json",
-  "download": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/indominantpiet/indominantpiet_v2_0_2.zip",
+  "manifest": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/main/system.json",
+  "download": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/main/indominantpiet_v2_0_2.zip",
   "authors": [
     {
       "name": "Greg Piet",
