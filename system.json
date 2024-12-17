@@ -8,7 +8,7 @@
   },
   "url": "https://github.com/WildManPiet/indominantpiet/tree/indominantpiet/",
   "manifest": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/main/system.json",
-  "download": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/main/indominantpiet_v2_0_3.zip",
+  "download": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/main/indominantpiet_v2_0_4.zip",
   "authors": [
     {
       "name": "Greg Piet",
@@ -26,7 +26,7 @@
       "flags": {}
     }
   ],
-  "version": "2.0.3",
+  "version": "2.0.4",
   "esmodules": [
     "module/indominantpiet.mjs"
   ],
@@ -167,7 +167,7 @@
   ],
   "background": "systems/indominantpiet/assets/Indominant_Foundry_Image.png",
   "grid": {
-    "units": "Moo-mans"
+    "units": "Units"
   },
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "drive"

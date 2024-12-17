@@ -22,3 +22,8 @@
 
 -   Changed vision settings for all actors to better support limited lighting.
 -   Testing clickable attack and damage rolls with gloop threats
+
+## 2.0.4
+
+-   Changed map measurements from the toatally awesome units of "Moo-mans" to the boring old "Units"...  Bueller... Bueller... Bueller...
+-   Added the unoffical consumable content of a "Choccy Moo-Malt" which is Buster's favorite drink.
