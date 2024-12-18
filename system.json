@@ -8,7 +8,7 @@
   },
   "url": "https://github.com/WildManPiet/indominantpiet/tree/main/",
   "manifest": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/main/system.json",
-  "download": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/main/indominantpiet_v2_0_2.zip",
+  "download": "https://raw.githubusercontent.com/WildManPiet/indominantpiet/main/indominantpiet_v2_0_4.zip",
   "authors": [
     {
       "name": "Greg Piet",
@@ -26,7 +26,7 @@
       "flags": {}
     }
   ],
-  "version": "2.0.2",
+  "version": "2.0.4",
   "esmodules": ["module/indominantpiet.mjs"],
   "styles": ["css/indominantpiet.css"],
   "license": "LICENSE.txt",
